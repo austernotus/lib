@@ -1,4 +1,5 @@
 const myLibrary = [];
+const libContainer = document.getElementById("library-container");
 
 function Book(title, author, pages, read){
     this.title = title;
@@ -12,7 +13,18 @@ function Book(title, author, pages, read){
 }
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", "295", false)
+const theBobbit = new Book("The Bobbit", "J.R.R. Tolkien", "295", false)
+myLibrary.push(theHobbit)
+myLibrary.push(theBobbit)
 
-function addBookToLibrary(){
 
+function addBookToLibrary(title, author, pages, read){
+    const newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+}
+
+function displayBooks(){
+    for (const book of myLibrary){
+        console.log(book.info());
+    }
 }

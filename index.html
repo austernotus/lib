@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
     <title>Library</title>
 </head>
 <body>
+    <h1>My Reading List</h1>
+    <button id="new-book" onclick="">New Book</button>
+    <dialog>
+        <form id="bookForm">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
     
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required>
+    
+            <label for="pages">Pages:</label>
+            <input type="text" id="pages" name="pages" required>
+    
+            <label for="read">Read:</label>
+            <input type="checkbox" id="read" name="read" required>
+    
+            <input type="submit" value="Add Book">
+        </form>
+    </dialog>
+    <div id="library-container">
+
+    </div>
 </body>
 </html>
