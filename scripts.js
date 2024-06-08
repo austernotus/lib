@@ -24,19 +24,13 @@ function Book(title, author, pages, read){
     }
 }
 
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", "295", false)
-const theBobbit = new Book("The Bobbit", "J.R.R. Tolkien", "295", false)
-myLibrary.push(theHobbit)
-myLibrary.push(theBobbit)
-
-
 function addBookToLibrary(title, author, pages, read){
     const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 }
 
-document.getElementById("bookForm").onsubmit = () => {
-    event.preventDefault()
+document.getElementById("bookForm").onsubmit = (event) => {
+    event.preventDefault();
 
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
@@ -44,7 +38,6 @@ document.getElementById("bookForm").onsubmit = () => {
     const read = document.getElementById('read').checked;
 
     if (!title || !author || !pages) {
-        alert("Please fill in all required fields.");
         return;
     }
 
@@ -55,9 +48,9 @@ document.getElementById("bookForm").onsubmit = () => {
 
 function displayBooks(){
     libContainer.replaceChildren();
-    for (i=0; i<myLibrary.length; i++){
-        createBookCard(myLibrary[i]);
-    }
+    myLibrary.forEach((book) =>{
+        createBookCard(book);
+    });
 }
 
 function createBookCard(book){
@@ -79,6 +72,11 @@ function createBookCard(book){
 
     if(book.read ? readCheckbox.checked = true : readCheckbox.checked = false);
     
+    readCheckbox.addEventListener("change", () => {
+        book.read = readCheckbox.checked;
+    });
+
+
     readCheckbox.type = "checkbox";
     readCheckbox.name = "read";
     readParagraph.appendChild(readCheckbox);
