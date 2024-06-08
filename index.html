@@ -9,7 +9,6 @@
 </head>
 <body>
     <h1>My Reading List</h1>
-    <button id="new-book" onclick="">New Book</button>
     <dialog>
         <form id="bookForm">
             <label for="title">Title:</label>
@@ -22,11 +21,17 @@
             <input type="text" id="pages" name="pages" required>
     
             <label for="read">Read:</label>
-            <input type="checkbox" id="read" name="read" required>
+            <input type="checkbox" id="read" name="read">
     
-            <input type="submit" value="Add Book">
+            <input id ="add-book" type="submit" value="Add Book" 
+            onclick="addBookToLibrary">
+            <button id="cancel">Cancel</button>
         </form>
+        <div>
+            
+        </div>
     </dialog>
+    <button id="new-book" onclick="">New Book</button>
     <div id="library-container">
 
     </div>
