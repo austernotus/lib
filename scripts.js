@@ -54,7 +54,37 @@ document.getElementById("bookForm").onsubmit = () => {
 }
 
 function displayBooks(){
-    for (const book of myLibrary){
-        console.log(book.info());
+    for (i=0; i<myLibrary.length; i++){
+        console.log(myLibrary[i].info());
     }
+}
+
+function createBookCard(book){
+    const newCard = document.createElement("div");
+
+    const titleParagraph = document.createElement("p");
+    const authorParagraph = document.createElement("p");
+    const pagesParagraph = document.createElement("p");
+    const readParagraph = document.createElement("p");
+    const readCheckbox = document.createElement("input");
+
+    newCard.id = myLibrary.indexOf(book)
+
+    titleParagraph.textContent = `Title: ${book.title}`;
+    authorParagraph.textContent = `Author: ${book.author}`;
+    pagesParagraph.textContent = `Pages: ${book.pages}`;
+    readParagraph.textContent = `Read? `;
+
+    if(book.read ? readCheckbox.checked = true : readCheckbox.checked = false);
+    
+    readCheckbox.type = "checkbox";
+    readParagraph.appendChild(readCheckbox);
+
+    newCard.appendChild(titleParagraph);
+    newCard.appendChild(authorParagraph);
+    newCard.appendChild(pagesParagraph);
+    newCard.appendChild(readParagraph);
+
+    libContainer.appendChild(newCard);
+
 }
