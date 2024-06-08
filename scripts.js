@@ -54,8 +54,9 @@ document.getElementById("bookForm").onsubmit = () => {
 }
 
 function displayBooks(){
+    libContainer.replaceChildren();
     for (i=0; i<myLibrary.length; i++){
-        console.log(myLibrary[i].info());
+        createBookCard(myLibrary[i]);
     }
 }
 
