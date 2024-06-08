@@ -68,6 +68,7 @@ function createBookCard(book){
     const pagesParagraph = document.createElement("p");
     const readParagraph = document.createElement("p");
     const readCheckbox = document.createElement("input");
+    const deleteButton = document.createElement("button");
 
     newCard.id = myLibrary.indexOf(book)
 
@@ -79,13 +80,25 @@ function createBookCard(book){
     if(book.read ? readCheckbox.checked = true : readCheckbox.checked = false);
     
     readCheckbox.type = "checkbox";
+    readCheckbox.name = "read";
     readParagraph.appendChild(readCheckbox);
+
+    deleteButton.addEventListener("click", function() {
+        deleteBook(deleteButton.parentElement);
+    });
+    deleteButton.textContent = "Delete";
 
     newCard.appendChild(titleParagraph);
     newCard.appendChild(authorParagraph);
     newCard.appendChild(pagesParagraph);
     newCard.appendChild(readParagraph);
+    newCard.appendChild(deleteButton);
 
     libContainer.appendChild(newCard);
 
+}
+
+function deleteBook(bookCard){
+    myLibrary.splice(bookCard.id, 1);
+    displayBooks();
 }
