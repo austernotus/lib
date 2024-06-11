@@ -63,12 +63,13 @@ function createBookCard(book){
     const readCheckbox = document.createElement("input");
     const deleteButton = document.createElement("button");
 
-    newCard.id = myLibrary.indexOf(book)
+    newCard.id = myLibrary.indexOf(book);
+    newCard.className = "book";
 
-    titleParagraph.textContent = `Title: ${book.title}`;
-    authorParagraph.textContent = `Author: ${book.author}`;
-    pagesParagraph.textContent = `Pages: ${book.pages}`;
-    readParagraph.textContent = `Read? `;
+    titleParagraph.innerHTML = `<b>Title:</b> ${book.title}`;
+    authorParagraph.innerHTML = `<b>Author:</b> ${book.author}`;
+    pagesParagraph.innerHTML = `<b>Pages:</b> ${book.pages}`;
+    readParagraph.innerHTML = `<b>Read?</b> `;
 
     if(book.read ? readCheckbox.checked = true : readCheckbox.checked = false);
     
