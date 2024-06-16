@@ -13,14 +13,18 @@ cancelButton.addEventListener("click", () => {
   dialog.close();
 });
 
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = () =>{
-        this.isRead = this.read ? "read." : "not read yet.";
-        return `${this.title}, by ${this.author}, ${this.pages} pages, ${this.isRead}`
+class Book{
+
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    info() {
+        const isRead = this.read ? "read." : "not read yet.";
+        return `${this.title}, by ${this.author}, ${this.pages} pages, ${isRead}`
     }
 }
 
@@ -82,8 +86,8 @@ function createBookCard(book){
     readCheckbox.name = "read";
     readParagraph.appendChild(readCheckbox);
 
-    deleteButton.addEventListener("click", function() {
-        deleteBook(deleteButton.parentElement);
+    deleteButton.addEventListener("click", () =>{
+        deleteBook(newCard);
     });
     deleteButton.textContent = "Delete";
 
